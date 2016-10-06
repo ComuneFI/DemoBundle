@@ -81,6 +81,7 @@ class DemoController extends Controller
 
         foreach ($resultset as $row) {
             /* ... per ogni elemento ... */
+            $operatoreid = $row->getId();
         }
 
         return $this->render('DemoBundle:Demo:output.html.twig');
@@ -155,11 +156,9 @@ class DemoController extends Controller
         $utentemail = 'imaptestlocale';
         $passwordmail = 'firenze1';
 
-        $nummessaggiConsegna = 0;
         $mailbox = new ImapMailbox($indirizzomail, $utentemail, $passwordmail, 'UTF-8');
 
         $arraymessaggi = array();
-        $mess = 0;
         $mailsIds = $mailbox->searchMailBox('ALL');
         if (!$mailsIds) {
             //Gestire come si vuole il fatto che non ci sono messaggi nella casella di posta
@@ -225,7 +224,7 @@ class DemoController extends Controller
             $datanascita = \PHPExcel_Style_NumberFormat::toFormattedString($sheet->getCellByColumnAndRow($datanascitacol, $row)->getValue(), 'DD/MM/YYYY');
 
             //Leggere il valore del risultato di una formula
-            $formula = $sheet->getCellByColumnAndRow($matricolacol, $row)->getCalculatedValue();
+            /* $formula = $sheet->getCellByColumnAndRow($matricolacol, $row)->getCalculatedValue(); */
 
             $datiletti = $matricola.':'.$cognome.':'.$nome.':'.$datanascita;
         }
@@ -500,7 +499,8 @@ class DemoController extends Controller
 
         if (!($fs->exists($fileattestato))) {
             echo 'Impossibile creare il file '.$fileattestato;
-            exit;
+
+            return;
         }
 
         $outdir = $this->get('kernel')->getRootDir().'/tmp/pdf/';
@@ -509,7 +509,8 @@ class DemoController extends Controller
 
         if (!($fs->exists($outdir))) {
             echo 'Impossibile creare la cartella '.$outdir;
-            exit;
+
+            return;
         }
 
         $libreofficePath = '/usr/bin/libreoffice';
@@ -527,7 +528,8 @@ class DemoController extends Controller
         //perchè non potendo chiedere la file_exists per problemi di privilegi sul server
         if (!$process->isSuccessful()) {
             echo $process->getErrorOutput();
-            exit;
+
+            return;
         } else {
             //echo $process->getOutput();exit;
             $pdf = $outdir.$filename.'.pdf';
@@ -550,7 +552,8 @@ class DemoController extends Controller
                 return $this->render('DemoBundle:Demo:output.html.twig');
             } else {
                 echo "Il server non e' stato in grado di generare il file pdf";
-                exit;
+
+                return;
             }
         }
     }
