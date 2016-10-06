@@ -4,23 +4,27 @@ fi_demo_index:
 
 fi_php_word_compilamodello:
     path:  /phpword
-    defaults: { _controller: "DemoBundle:Demo:PHPWord" }
+    defaults: { _controller: "DemoBundle:DemoOffice:PHPWord" }
 
 fi_php_excel_demowrite:
     path:  /phpexcel/demowrite
-    defaults: { _controller: DemoBundle:Demo:excelwrite }
+    defaults: { _controller: DemoBundle:DemoOffice:excelwrite }
 
 fi_php_excel_demoreadarray:
     path:  /phpexcel/demoreadarray
-    defaults: { _controller: DemoBundle:Demo:excelreadarray }
+    defaults: { _controller: DemoBundle:DemoOffice:excelreadarray }
 
 fi_php_excel_demoread:
     path:  /phpexcel/demoread
-    defaults: { _controller: DemoBundle:Demo:excelread }
+    defaults: { _controller: DemoBundle:DemoOffice:excelread }
 
 fi_php_excel_querytoexcel:
     path:  /phpexcel/queryToExcel
-    defaults: { _controller: DemoBundle:Demo:excelqueryToExcel }
+    defaults: { _controller: DemoBundle:DemoOffice:excelqueryToExcel }
+
+fi_demo_docx2pdf:
+    path:  /docx2pdf
+    defaults: { _controller: "DemoBundle:DemoOffice:docx2Pdf" }
 
 fi_demo_uploadfile:
     path:  /uploadfile
@@ -46,10 +50,6 @@ fi_demo_doctrine_update:
     path:  /doctrineUpdate
     defaults: { _controller: "DemoBundle:DemoDoctrine:doctrineUpdate" }
     
-fi_demo_docx2pdf:
-    path:  /docx2pdf
-    defaults: { _controller: "DemoBundle:Demo:docx2Pdf" }
-
 fi_php_invioemail:
     path:  /inviomail
     defaults: { _controller: "DemoBundle:DemoMail:inviomail" }
