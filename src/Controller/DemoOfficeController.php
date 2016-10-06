@@ -213,7 +213,7 @@ class DemoOfficeController extends Controller
 
         $response->setContent(file_get_contents($filename));
 
-        //Per avere disponibile al download il file excel scommentare 
+        //Per avere disponibile al download il file excel scommentare
         //return $response; e commentare return $this->render('DemoBundle:Demo:output.html.twig');
         //return $response;
         return $this->render('DemoBundle:Demo:output.html.twig');
@@ -241,8 +241,8 @@ class DemoOfficeController extends Controller
 
         $queryObj = $this->get('oracle_manager');
         $sql = "SELECT * FROM ALL_TABLES WHERE OWNER = 'P00' AND ROWNUM < 30"; // AND ROWNUM < 30
-        //$sql = "SELECT OWNER,TABLE_NAME,TABLESPACE_NAME,CLUSTER_NAME,IOT_NAME,STATUS,PCT_FREE,PCT_USED,INI_TRANS,MAX_TRANS,INITIAL_EXTENT 
-        //FROM ALL_TABLES 
+        //$sql = "SELECT OWNER,TABLE_NAME,TABLESPACE_NAME,CLUSTER_NAME,IOT_NAME,STATUS,PCT_FREE,PCT_USED,INI_TRANS,MAX_TRANS,INITIAL_EXTENT
+        //FROM ALL_TABLES
         //WHERE OWNER = 'P00' AND ROWNUM < 30";
 
         $queryObj->executeSelectQuery($sql, false);
@@ -300,7 +300,7 @@ class DemoOfficeController extends Controller
         $response->headers->set('Content-Disposition', 'attachment;filename="'.basename($filename).'"');
 
         $response->setContent(file_get_contents($filename));
-        //Per avere disponibile al download il file excel scommentare 
+        //Per avere disponibile al download il file excel scommentare
         //return $response; e commentare return $this->render('DemoBundle:Demo:output.html.twig');
         //return $response;
         return $this->render('DemoBundle:Demo:output.html.twig');
