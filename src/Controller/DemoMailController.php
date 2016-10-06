@@ -44,11 +44,9 @@ class DemoMailController extends Controller {
         $utentemail = 'imaptestlocale';
         $passwordmail = 'firenze1';
 
-        $nummessaggiConsegna = 0;
         $mailbox = new ImapMailbox($indirizzomail, $utentemail, $passwordmail, 'UTF-8');
 
         $arraymessaggi = array();
-        $mess = 0;
         $mailsIds = $mailbox->searchMailBox('ALL');
         if (!$mailsIds) {
             //Gestire come si vuole il fatto che non ci sono messaggi nella casella di posta

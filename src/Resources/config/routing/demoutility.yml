@@ -24,7 +24,7 @@ fi_php_excel_querytoexcel:
 
 fi_demo_docx2pdf:
     path:  /docx2pdf
-    defaults: { _controller: "DemoBundle:DemoOffice:docx2Pdf" }
+    defaults: { _controller: "DemoBundle:DemoPdf:docx2Pdf" }
 
 fi_demo_uploadfile:
     path:  /uploadfile
