@@ -32,19 +32,19 @@ fi_demo_uploadfile_destination:
     
 fi_demo_doctrine_select:
     path:  /doctrineSelect
-    defaults: { _controller: "DemoBundle:Demo:doctrineSelect" }
+    defaults: { _controller: "DemoBundle:DemoDoctrine:doctrineSelect" }
     
 fi_demo_doctrine_insert:
     path:  /doctrineInsert
-    defaults: { _controller: "DemoBundle:Demo:doctrineInsert" }
+    defaults: { _controller: "DemoBundle:DemoDoctrine:doctrineInsert" }
     
 fi_demo_doctrine_delete:
     path:  /doctrineDelete
-    defaults: { _controller: "DemoBundle:Demo:doctrineDelete" }
+    defaults: { _controller: "DemoBundle:DemoDoctrine:doctrineDelete" }
     
 fi_demo_doctrine_update:
     path:  /doctrineUpdate
-    defaults: { _controller: "DemoBundle:Demo:doctrineUpdate" }
+    defaults: { _controller: "DemoBundle:DemoDoctrine:doctrineUpdate" }
     
 fi_demo_docx2pdf:
     path:  /docx2pdf
@@ -52,9 +52,9 @@ fi_demo_docx2pdf:
 
 fi_php_invioemail:
     path:  /inviomail
-    defaults: { _controller: "DemoBundle:Demo:inviomail" }
+    defaults: { _controller: "DemoBundle:DemoMail:inviomail" }
 
 fi_php_letturamailbox:
     path:  /letturamailbox
-    defaults: { _controller: "DemoBundle:Demo:letturamailbox" }
+    defaults: { _controller: "DemoBundle:DemoMail:letturamailbox" }
 
