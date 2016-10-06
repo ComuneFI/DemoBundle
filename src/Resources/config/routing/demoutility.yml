@@ -1,0 +1,60 @@
+fi_demo_index:
+    path:  /
+    defaults: { _controller: "DemoBundle:Demo:index" }
+
+fi_php_word_compilamodello:
+    path:  /phpword
+    defaults: { _controller: "DemoBundle:Demo:PHPWord" }
+
+fi_php_excel_demowrite:
+    path:  /phpexcel/demowrite
+    defaults: { _controller: DemoBundle:Demo:excelwrite }
+
+fi_php_excel_demoreadarray:
+    path:  /phpexcel/demoreadarray
+    defaults: { _controller: DemoBundle:Demo:excelreadarray }
+
+fi_php_excel_demoread:
+    path:  /phpexcel/demoread
+    defaults: { _controller: DemoBundle:Demo:excelread }
+
+fi_php_excel_querytoexcel:
+    path:  /phpexcel/queryToExcel
+    defaults: { _controller: DemoBundle:Demo:excelqueryToExcel }
+
+fi_demo_uploadfile:
+    path:  /uploadfile
+    defaults: { _controller: "DemoBundle:Demo:uploadIndex" }
+
+fi_demo_uploadfile_destination:
+    path:  /saveuploadfile
+    defaults: { _controller: "DemoBundle:Demo:uploadSave" }
+    
+fi_demo_doctrine_select:
+    path:  /doctrineSelect
+    defaults: { _controller: "DemoBundle:Demo:doctrineSelect" }
+    
+fi_demo_doctrine_insert:
+    path:  /doctrineInsert
+    defaults: { _controller: "DemoBundle:Demo:doctrineInsert" }
+    
+fi_demo_doctrine_delete:
+    path:  /doctrineDelete
+    defaults: { _controller: "DemoBundle:Demo:doctrineDelete" }
+    
+fi_demo_doctrine_update:
+    path:  /doctrineUpdate
+    defaults: { _controller: "DemoBundle:Demo:doctrineUpdate" }
+    
+fi_demo_docx2pdf:
+    path:  /docx2pdf
+    defaults: { _controller: "DemoBundle:Demo:docx2Pdf" }
+
+fi_php_invioemail:
+    path:  /inviomail
+    defaults: { _controller: "DemoBundle:Demo:inviomail" }
+
+fi_php_letturamailbox:
+    path:  /letturamailbox
+    defaults: { _controller: "DemoBundle:Demo:letturamailbox" }
+

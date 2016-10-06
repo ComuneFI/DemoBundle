@@ -1,0 +1,66 @@
+{% extends 'FiCoreBundle::layout.html.twig' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+    <!--<a href="{{ path('fi_php_excel_demowrite', { 'name': 'Manzolo' }) }}">Prova</a>-->
+    <ul><h1>Excel</h1>
+        <li>
+            <a href="{{ path('fi_php_excel_demowrite') }}">Scrittura su file Excel</a>
+        </li>
+        <li>
+            <a href="{{ path('fi_php_excel_demoread') }}">Lettura da file Excel</a>
+        </li>
+        <li>
+            <a href="{{ path('fi_php_excel_querytoexcel') }}">Query2Excel</a>
+        </li>
+    </ul>
+    
+    <ul><h1>Email</h1>
+        <li>
+            <a href="{{ path('fi_php_invioemail') }}">Invia email</a>
+        </li>
+        <li>
+            <a href="{{ path('fi_php_letturamailbox') }}">Lettura mailbox IMAP</a>
+        </li>
+    </ul>
+    
+    <ul><h1>Word</h1>
+        <li>
+            <a href="{{ path('fi_php_word_compilamodello') }}">Compila modello su file Word</a>
+        </li>
+    </ul>
+    
+    <ul><h1>Oracle</h1>
+        <li>
+            <a href="{{ path('fi_oracle_homepage') }}">Query su oracle</a>
+        </li>
+    </ul>
+    
+    <ul><h1>File</h1>
+        <li>
+            <a href="{{ path('fi_demo_uploadfile') }}">Upload file</a>
+        </li>
+    </ul>
+
+    <ul><h1>Doctrine</h1>
+        <li>
+            <a href="{{ path('fi_demo_doctrine_select') }}">Select</a>
+        </li>
+        <li>
+            <a href="{{ path('fi_demo_doctrine_update') }}">Update</a>
+        </li>
+        <li>
+            <a href="{{ path('fi_demo_doctrine_insert') }}">Insert</a>
+        </li>
+        <li>
+            <a href="{{ path('fi_demo_doctrine_delete') }}">Delete</a>
+        </li>
+    </ul>
+        
+    <ul><h1>Varie</h1>
+        <li>
+            <a href="{{ path('fi_demo_docx2pdf') }}">Docx -> PDF</a>
+        </li>
+    </ul>
+
+{% endblock  %}

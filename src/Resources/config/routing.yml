@@ -1,0 +1,4 @@
+FiDemoBundle_demo:
+    resource: "@DemoBundle/Resources/config/routing/demoutility.yml"
+    prefix:   /demo
+

@@ -1,0 +1,34 @@
+{% extends 'FiCoreBundle::layout.html.twig' %}
+{% block head %}
+{{ parent() }}
+<script src="{{ asset('bundles/ficore/js/vendor/jquery.form.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        /* attach a submit handler to the form */
+        $(document).on("click", "#submitfile", function(event) {
+            //alert("qui");
+            event.preventDefault();
+            if (!$('#filename').val()) {
+                alert("Non è stato specificato nessun file");
+                return false;
+            }
+            $('#uploadfile').ajaxSubmit(function() {
+                alert("File upload completato");
+            });
+
+        }
+        );
+    });
+    </script>
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block content %}
+
+    <form id="uploadfile" method="post" enctype="multipart/form-data" action="{{ path('fi_demo_uploadfile_destination') }}">
+        <input type="file" name="filename" id="filename" value="" />
+        <input type="submit" name="submitfile" id="submitfile" value="Inserisci il file" />
+    </form>
+
+{% endblock  %}
+

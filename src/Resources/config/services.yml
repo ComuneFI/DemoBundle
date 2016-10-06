@@ -1,0 +1,16 @@
+parameters:
+#    demo.example.class: Fi\demoBundle\Example
+
+services:
+    fi.twig.fi_demo_extension:
+      class: Fi\DemoBundle\Twig\Extension\DemoExtension
+      tags:
+        - { name: twig.extension }
+      arguments: [ '@twig.loader' ]
+
+    fi.twig.demo.listener:
+        class: Fi\DemoBundle\EventListener\ControllerListener
+        arguments: ['@fi.twig.fi_demo_extension']
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller,method: onKernelController }
+    

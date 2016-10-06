@@ -1,0 +1,22 @@
+{% extends "FiCoreBundle::layout.html.twig" %}
+
+{% block title "Demo" %}
+
+    {% import _self as macros %}
+    {% set code = code(macros) %}
+
+    {% block body %}
+
+        <h1>Il codice dietro a questa pagina</h1>
+        <div class="block">
+            <div class="symfony-content" style="font-size: 200%;">{{ code|raw }}</div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+            {% if extrainfo is defined %}
+                <h1>Altre informazioni</h1>
+                <div id="extrainfo"><h2>{{extrainfo}}</h2></div>
+            {% endif %}
+
+    {% endblock %}
