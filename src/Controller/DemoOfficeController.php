@@ -57,7 +57,7 @@ class DemoOfficeController extends Controller {
             $datanascita = \PHPExcel_Style_NumberFormat::toFormattedString($sheet->getCellByColumnAndRow($datanascitacol, $row)->getValue(), 'DD/MM/YYYY');
 
             //Leggere il valore del risultato di una formula
-            $formula = $sheet->getCellByColumnAndRow($matricolacol, $row)->getCalculatedValue();
+            /* $formula = $sheet->getCellByColumnAndRow($matricolacol, $row)->getCalculatedValue(); */
 
             $datiletti = $matricola . ":" . $cognome . ":" . $nome . ":" . $datanascita;
         }
@@ -325,10 +325,9 @@ class DemoOfficeController extends Controller {
         }
 
         $document->saveAs($fileattestato);
-        
+
         if (!($fs->exists($fileattestato))) {
-            echo "Impossibile creare il file " . $fileattestato;
-            exit;
+            return new Response("Impossibile creare il file " . $fileattestato);
         }
 
         $outdir = $this->get('kernel')->getRootDir() . "/tmp/pdf/";
@@ -336,8 +335,7 @@ class DemoOfficeController extends Controller {
         $fs->mkdir($outdir, 0777);
 
         if (!($fs->exists($outdir))) {
-            echo "Impossibile creare la cartella " . $outdir;
-            exit;
+            return new Response("Impossibile creare la cartella " . $outdir);
         }
 
         $libreofficePath = "/usr/bin/libreoffice";
@@ -345,17 +343,16 @@ class DemoOfficeController extends Controller {
         $convertcmd = $libreofficePath . " --headless --convert-to pdf " . $fileattestato . " --outdir " . $outdir;
         /* @var $process \Symfony\Component\Process\Process */
         $process = new \Symfony\Component\Process\Process($convertcmd);
-        
+
         //Per poter generare il file tramite libreoffice è necessario impostare la variabile env HOME per apache
-        $process->setEnv(array("HOME"=>"/tmp"));
+        $process->setEnv(array("HOME" => "/tmp"));
 
         $process->run();
 
         //Si presume esista libreoffice, quindi controllare che sia installato 
         //perchè non potendo chiedere la file_exists per problemi di privilegi sul server
         if (!$process->isSuccessful()) {
-            echo $process->getErrorOutput();
-            exit;
+            return new Response($process->getErrorOutput());
         } else {
             //echo $process->getOutput();exit;
             $pdf = $outdir . $filename . ".pdf";
@@ -377,8 +374,7 @@ class DemoOfficeController extends Controller {
                 //Questo render solo per vedere il codice che sta dietro a questo controller
                 return $this->render('DemoBundle:Demo:output.html.twig');
             } else {
-                echo "Il server non e' stato in grado di generare il file pdf";
-                exit;
+                return new Response("Il server non e' stato in grado di generare il file pdf");
             }
         }
     }
