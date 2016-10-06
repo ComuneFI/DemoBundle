@@ -19,7 +19,7 @@
         "php": ">=5.4.0",
         "friendsofsymfony/user-bundle": "dev-master#47e4de9d8b6fed521729fb38107d9413863fe4ce as 2.0",
         "fi/fifreecorebundle": "~2.0",
-        "fi/oraclebundle": "2.0.*"
+        "fi/oraclebundle": "~2.0"
     },
     "require-dev": {
         "symfony/symfony": "2.8.*",
