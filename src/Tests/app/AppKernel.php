@@ -1,5 +1,6 @@
 <?php
 
+namespace Fi\DemoBundle\Tests;
 // Tests/AppKernel.php (you can define it in a subdirectory /Fixtures if you prefer)
 
 use Symfony\Component\HttpKernel\Kernel;
