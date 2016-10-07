@@ -38,9 +38,9 @@ class DemoMailController extends Controller
 
     public function letturamailboxAction()
     {
-        $indirizzomail = $this->getContainer()->getParameter("imapconnectionstring");
-        $utentemail = $this->getContainer()->getParameter("imapusername");
-        $passwordmail = $this->getContainer()->getParameter("imappassword");
+        $indirizzomail = $this->getParameter("imapconnectionstring");
+        $utentemail = $this->getParameter("imapusername");
+        $passwordmail = $this->getParameter("imappassword");
 
         $mailbox = new ImapMailbox($indirizzomail, $utentemail, $passwordmail, 'UTF-8');
 
