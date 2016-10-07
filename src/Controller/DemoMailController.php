@@ -38,9 +38,9 @@ class DemoMailController extends Controller
 
     public function letturamailboxAction()
     {
-        $indirizzomail = '{imap.comune.intranet:143/novalidate-cert}INBOX';
-        $utentemail = 'imaptestlocale';
-        $passwordmail = 'firenze1';
+        $indirizzomail = $this->getContainer()->getParameter("imapconnectionstring");
+        $utentemail = $this->getContainer()->getParameter("imapusername");
+        $passwordmail = $this->getContainer()->getParameter("imappassword");
 
         $mailbox = new ImapMailbox($indirizzomail, $utentemail, $passwordmail, 'UTF-8');
 
