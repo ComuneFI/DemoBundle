@@ -21,7 +21,7 @@
         "fi/oraclebundle": "~3.0"
     },
     "require-dev": {
-        "symfony/symfony": "3.4.0-BETA2 3.4.0",
+        "symfony/symfony": "3.4.0",
         "sensiolabs/security-checker": "^3.0",
         "satooshi/php-coveralls": "^1.0",
         "squizlabs/php_codesniffer": "^2.7",
